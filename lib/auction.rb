@@ -30,4 +30,13 @@ class Auction
     end
     revenue
   end
+
+  def bidders
+    bidders = []
+    @items.each do |item|
+      bidders << item.bids
+    require 'pry'; binding.pry
+    end
+    bidders.uniq
+  end
 end

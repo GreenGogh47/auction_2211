@@ -95,7 +95,9 @@ describe Auction do
       @item4.add_bid(@attendee3, 50)
       @item3.add_bid(@attendee2, 15)
 
-      expect(@auction.bidders).to match_array([@attendee2, attendee1, attendee3])
+      # require 'pry'; binding.pry
+
+      expect(@auction.bidders).to match_array([@attendee2, @attendee1, @attendee3])
     end
   end
 end
