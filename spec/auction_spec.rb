@@ -117,11 +117,11 @@ describe Auction do
         @attendee1 => {
           :budget => 50,
           :items => [@item1]
-        }
+        },
         @attendee2 => {
           :budget => 75,
           :items => [@item1, @item3]
-        }
+        },
         @attendee3 => {
           :budget => 100,
           :items => [@item4]
@@ -129,5 +129,6 @@ describe Auction do
       }
 
       expect(@auction.bidder_info).to include?(expected)
-
+    end
+  end
 end
