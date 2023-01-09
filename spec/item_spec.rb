@@ -38,4 +38,12 @@ describe Item do
       expect(@item1.bids).to eq({@attendee2 => 20, @attendee1 => 22})
     end
   end
+
+  describe '#current_high_bid' do
+    it 'displays the highest bid for this item' do
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      expect(@item1.current_high_bid).to eq(22)
+    end
+  end
 end
