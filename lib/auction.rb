@@ -14,6 +14,12 @@ class Auction
   end
 
   def unpopular_items
-    
+    unbidded = []
+    @items.each do |item|
+      if item.bids.empty?
+        unbidded << item
+      end
+    end
+    unbidded
   end
 end

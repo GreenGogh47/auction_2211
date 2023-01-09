@@ -12,7 +12,7 @@ describe Auction do
 
     @attendee1 = Attendee.new(name: 'Megan', budget: '$50')
     @attendee2 = Attendee.new(name: 'Bob', budget: '$75')
-    attendee3 = Attendee.new(name: 'Mike', budget: '$100')
+    @attendee3 = Attendee.new(name: 'Mike', budget: '$100')
 
     @auction = Auction.new
   end
@@ -55,11 +55,11 @@ describe Auction do
       @item1.add_bid(@attendee1, 22)
       @item4.add_bid(@attendee3, 50)
 
-      expect(@auction.unpopular_items).to eq([@item2, @item3, @item5])
+      expect(@auction.unpopular_items).to match_array([@item2, @item3, @item5])
 
       @item3.add_bid(@attendee2, 15)
 
-      expect(@auction.unpopular_items).to eq([@item2, @item5])
+      expect(@auction.unpopular_items).to match_array([@item2, @item5])
     end
   end
 end
