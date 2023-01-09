@@ -9,5 +9,11 @@ class Item
   def add_bid(attendee, cash)
     @bids[attendee] = cash
   end
+
+  def current_high_bid
+    @bids.max do |bid|
+      bid.last
+    end.last
+  end
 end
 
