@@ -1,4 +1,5 @@
 require './lib/item'
+require './lib/attendee'
 require './lib/auction'
 
 describe Auction do
@@ -54,11 +55,11 @@ describe Auction do
       @item1.add_bid(@attendee1, 22)
       @item4.add_bid(@attendee3, 50)
 
-      expect(@auction.unpopular_items).to include?([item2, item3, item5])
+      expect(@auction.unpopular_items).to eq([@item2, @item3, @item5])
 
-      @item3.add_bid(attendee2, 15)
+      @item3.add_bid(@attendee2, 15)
 
-      expect(@auction.unpopular_items).to include?([item2, item5])
+      expect(@auction.unpopular_items).to eq([@item2, @item5])
     end
   end
 end
