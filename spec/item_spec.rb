@@ -1,4 +1,5 @@
 require './lib/item'
+require './lib/attendee'
 
 describe Item do
   before do
@@ -7,6 +8,12 @@ describe Item do
     @item3 = Item.new('Homemade Chocolate Chip Cookies')
     @item4 = Item.new('2 Days Dogsitting')
     @item5 = Item.new('Forever Stamps')
+
+    @attendee1 = Attendee.new(name: 'Megan', budget: '$50')
+    @attendee2 = Attendee.new(name: 'Bob', budget: '$75')
+    @attendee3 = Attendee.new(name: 'Mike', budget: '$100')
+
+    @auction = Auction.new
   end
 
   describe '#initialize' do
