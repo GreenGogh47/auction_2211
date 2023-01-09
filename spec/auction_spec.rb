@@ -98,4 +98,36 @@ describe Auction do
       expect(@auction.bidders).to match_array([@attendee2, @attendee1, @attendee3])
     end
   end
+
+  describe '#bidder_info' do
+    it 'returns a hash with KEYS that are attendees, and VALUES that are a
+    hash with their budget, and an array of items they bid on' do
+      @auction.add_item(@item1)
+      @auction.add_item(@item2)
+      @auction.add_item(@item3)
+      @auction.add_item(@item4)
+      @auction.add_item(@item5)
+
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      @item4.add_bid(@attendee3, 50)
+      @item3.add_bid(@attendee2, 15)
+
+      expected = {
+        @attendee1 => {
+          :budget => 50,
+          :items => [@item1]
+        }
+        @attendee2 => {
+          :budget => 75,
+          :items => [@item1, @item3]
+        }
+        @attendee3 => {
+          :budget => 100,
+          :items => [@item4]
+        }
+      }
+
+      expect(@auction.bidder_info).to include?(expected)
+
 end
