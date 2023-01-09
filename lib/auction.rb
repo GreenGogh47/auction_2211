@@ -32,11 +32,12 @@ class Auction
   end
 
   def bidders
-    bidders = []
+    attendees = []
     @items.each do |item|
-      bidders << item.bids
-    require 'pry'; binding.pry
+      item.bids.each_key do |attendee|
+        attendees << attendee
+      end
     end
-    bidders.uniq
+    attendees.compact.uniq
   end
 end
