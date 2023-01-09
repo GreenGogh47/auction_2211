@@ -76,6 +76,8 @@ describe Auction do
       @item4.add_bid(@attendee3, 50)
       @item3.add_bid(@attendee2, 15)
 
+      # require 'pry'; binding.pry
+
       expect(@auction.potential_revenue).to eq(87)
     end
   end

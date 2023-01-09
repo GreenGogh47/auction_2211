@@ -11,9 +11,11 @@ class Item
   end
 
   def current_high_bid
-    @bids.max do |bid|
-      bid.last
-    end.last
+    high_bids = []
+    @bids.each do |attendee,bid|
+      high_bids << bid
+    end
+    high_bids.max
   end
 end
 
