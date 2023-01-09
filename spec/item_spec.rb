@@ -8,12 +8,12 @@ describe Item do
 
   describe '#initialize' do
     it 'exists' do
-      expect(item1).to be_a(Item)
+      expect(@item1).to be_a(Item)
     end
 
     it 'has attributes' do
-      expect(item1.name).to eq('Chalkware Piggy Bank')
-      expect(item2.name).to eq('Bamboo Picture Frame')
+      expect(@item1.name).to eq('Chalkware Piggy Bank')
+      expect(@item2.name).to eq('Bamboo Picture Frame')
     end
   end
 end
